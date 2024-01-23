@@ -1,0 +1,29 @@
+<div class="container w-100 mt-2 d-flex flex-column justify-content-center align-items-center"
+    style="overflow: hidden;">
+    <h1>Add new User</h1>
+    <form (ngSubmit)="addemployee()" class="form text-center border-round shadow m-3 p-5 col-12 col-md-6 col-lg-4">
+        <img class="img-fluid" src="https://i.pinimg.com/originals/5c/37/14/5c3714cba608140b1d6c15ce3f699068.gif"
+            alt="">
+        <input type="text" class="form-control mt-3 mb-3" placeholder="User Id" name="empid" [(ngModel)]="employee.id" required pattern="[0-9]*" #employeeid="ngModel" id="">
+        <span *ngIf="employeeid.invalid && employeeid.touched" class="text-danger">Invalid User Id</span>
+        
+        <input type="text" class="form-control mb-3" placeholder="Username" name="empname" [(ngModel)]="employee.name" required pattern="^[a-zA-Z]{3,}$" #employeename="ngModel" id="">
+        <span *ngIf="employeename.invalid && employeename.touched" class="text-danger">Invalid Username</span>
+
+        <input type="text" class="form-control mb-3" placeholder="Email" name="empemail" [(ngModel)]="employee.email" required email #employeeemail="ngModel" id="">
+        <span *ngIf="employeeemail.invalid && employeeemail.touched" class="text-danger">Invalid Email</span>
+
+        <div class="form-floating mb-3">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="empstatus" [(ngModel)]="employee.status" required #employeestatus="ngModel">
+                <option selected>Open this select menu</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+            <label for="floatingSelect">Status</label>
+        </div>
+        <div class="align-items-center justify-content-inline d-flex">
+            <input type="button" (click)="cancelemployee()" value="Cancel" class="btn btn-warning" />
+            <input type="submit"  value="Save" class="btn ms-2 btn-success" />
+        </div>
+    </form>
+</div>

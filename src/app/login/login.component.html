@@ -1,0 +1,22 @@
+<div class="container-fluid row ">
+    <div class="col-md-4">
+        <img src="https://blog.drjobpro.com/wp-content/uploads/2020/10/20-GIFs-That-Only-Employees-Will-Understand.gif" class="mt-5 rounded-3" alt="" width="100%" >
+    </div>
+    <div class="col-md-4 justify-content-center mt-5">
+        <form #loginform="ngForm" (ngSubmit)="login()" class="border shadow rounded-2 p-4 mt-5 ms-5 " style="background-image: url('https://wallpapercave.com/wp/wp2757874.gif');" >
+            <h3 class="text-center text-primary">Login Form</h3>
+            <input type="text" class="form-control mt-3 text-center" placeholder="e-mail" email required [(ngModel)]="email" name="email" #useremail="ngModel">
+            <span *ngIf="useremail.invalid && useremail.touched"  class="text-danger">Invalid Email</span>
+            <input type="text" class="form-control text-center mt-3" placeholder="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}$"  [(ngModel)]="password" name="password" #userpsw="ngModel">
+            <span *ngIf="userpsw.invalid && userpsw.touched "  class="text-danger">Invalid Password</span>
+           <div class="d-flex justify-content-center"> <button [disabled]="loginform.invalid" type="submit" class="  btn btn-danger mt-5 ">Login</button></div>
+
+
+        </form>
+    </div>
+    <div class="col-md-4 mt-5">
+        <img src="https://i.pinimg.com/originals/cf/6f/cf/cf6fcf14be2cd01dd4923b36445ca632.gif" width="100%" alt="">
+        
+    </div>
+
+</div>
